@@ -1,16 +1,22 @@
 package com.codeup.adlister.models;
 
+import java.sql.Timestamp;
+
 public class Ad {
     private long id;
     private long userId;
     private String title;
     private String description;
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
 
-    public Ad(long id, long userId, String title, String description) {
+    public Ad(long id, long userId, String title, String description, Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.description = description;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Ad(long userId, String title, String description) {
@@ -49,5 +55,21 @@ public class Ad {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
