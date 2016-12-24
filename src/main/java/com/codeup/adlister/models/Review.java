@@ -1,22 +1,27 @@
 package com.codeup.adlister.models;
 
 public class Review {
+
     private long id;
     private long userId;
     private long adId;
     private String reviewText;
 
     public Review(long id, long userId, long adId, String reviewText) {
+
         this.id = id;
         this.userId = userId;
         this.adId = adId;
         this.reviewText = reviewText;
+
     }
 
     public Review(long userId, long adId, String reviewText) {
+
         this.userId = userId;
         this.adId = adId;
         this.reviewText = reviewText;
+
     }
 
     public long getId() {

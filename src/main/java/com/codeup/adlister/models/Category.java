@@ -1,9 +1,7 @@
 package com.codeup.adlister.models;
 
-/**
- * Created by M.Ben_Roberts on 12/23/16.
- */
 public class Category {
+
     private long id;
     private String category;
 

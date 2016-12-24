@@ -113,7 +113,7 @@ public class MySQLAdsDao implements Ads {
 
         List<Ad> ads = new ArrayList<>();
 
-        while (rs.next()) {ads.add(extractAd(rs));}
+        while (rs.next()) { ads.add(extractAd(rs)); }
 
         return ads;
     }

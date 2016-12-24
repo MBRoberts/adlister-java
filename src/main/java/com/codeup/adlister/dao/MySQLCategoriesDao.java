@@ -78,6 +78,7 @@ public class MySQLCategoriesDao implements Categories {
             stmt = connection.prepareStatement("SELECT * FROM categories WHERE id IN (?)");
             stmt.setLong(1, categoryId);
             ResultSet rs = stmt.executeQuery();
+
             return extractCategory(rs);
 
         } catch (SQLException e) {
