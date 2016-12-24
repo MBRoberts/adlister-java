@@ -1,8 +1,5 @@
 package com.codeup.adlister.models;
 
-/**
- * Created by M.Ben_Roberts on 12/22/16.
- */
 public class Review {
     private long id;
     private long userId;

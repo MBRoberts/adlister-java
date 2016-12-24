@@ -1,28 +1,35 @@
 package com.codeup.adlister.models;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Ad {
+
     private long id;
     private long userId;
     private String title;
     private String description;
     private Timestamp createdAt;
     private Timestamp updatedAt;
+    private List<String> categories;
 
     public Ad(long id, long userId, String title, String description, Timestamp createdAt, Timestamp updatedAt) {
+
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.description = description;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+
     }
 
     public Ad(long userId, String title, String description) {
+
         this.userId = userId;
         this.title = title;
         this.description = description;
+
     }
 
     public long getId() {
@@ -53,9 +60,7 @@ public class Ad {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setDescription(String description) { this.description = description; }
 
     public Timestamp getCreatedAt() {
         return createdAt;
@@ -65,11 +70,13 @@ public class Ad {
         this.createdAt = createdAt;
     }
 
-    public Timestamp getUpdatedAt() {
-        return updatedAt;
-    }
+    public Timestamp getUpdatedAt() { return updatedAt; }
 
     public void setUpdatedAt(Timestamp updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    public List<String> getCategories() { return categories; }
+
+    public void setCategories(List<String> categories) { this.categories = categories; }
 }
