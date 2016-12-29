@@ -1,5 +1,7 @@
 package com.codeup.adlister.models;
 
+import org.ocpsoft.prettytime.PrettyTime;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -9,6 +11,8 @@ public class Ad {
     private long userId;
     private String title;
     private String description;
+    private String timeCreatedAgo;
+    private String timeUpdatedAgo;
     private Timestamp createdAt;
     private Timestamp updatedAt;
     private List<String> categories;
@@ -79,4 +83,20 @@ public class Ad {
     public List<String> getCategories() { return categories; }
 
     public void setCategories(List<String> categories) { this.categories = categories; }
+
+    public String getTimeCreatedAgo() {
+        return timeCreatedAgo;
+    }
+
+    public void setTimeCreatedAgo(String timeCreatedAgo) {
+        this.timeCreatedAgo = timeCreatedAgo;
+    }
+
+    public String getTimeUpdatedAgo() {
+        return timeUpdatedAgo;
+    }
+
+    public void setTimeUpdatedAgo(String timeUpdatedAgo) {
+        this.timeUpdatedAgo = timeUpdatedAgo;
+    }
 }

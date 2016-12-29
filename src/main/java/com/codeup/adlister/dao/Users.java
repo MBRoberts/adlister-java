@@ -8,4 +8,5 @@ public interface Users {
 
     Long insert(User user);
 
+    int update(User user);
 }

@@ -2,6 +2,8 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 
 
 import javax.servlet.ServletException;
@@ -27,10 +29,10 @@ public class RegisterServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String username = request.getParameter("username");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String passwordConfirmation = request.getParameter("confirm_password");
+        String username = Jsoup.clean(request.getParameter("username"), Whitelist.basic());
+        String email = Jsoup.clean(request.getParameter("email"), Whitelist.basic());
+        String password = Jsoup.clean(request.getParameter("password"), Whitelist.basic());
+        String passwordConfirmation = Jsoup.clean(request.getParameter("confirm_password"), Whitelist.basic());
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
@@ -40,6 +42,7 @@ public class RegisterServlet extends HttpServlet {
 
         if (inputHasErrors) {
 
+            request.getSession().setAttribute("message", "Please fill out required fields");
             response.sendRedirect("/register");
             return;
 

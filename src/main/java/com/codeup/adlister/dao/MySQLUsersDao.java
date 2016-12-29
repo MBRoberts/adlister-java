@@ -72,6 +72,31 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    @Override
+    public int update(User user) {
+
+        String query = "UPDATE users SET username = ?, email = ? WHERE id = ?";
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getEmail());
+            stmt.setLong(3, user.getId());
+            stmt.executeUpdate();
+
+            int updateCount = stmt.getUpdateCount();
+
+
+            return updateCount;
+
+        } catch (SQLException e) {
+
+            throw new RuntimeException("Error creating new user", e);
+
+        }
+    }
+
     private User extractUser(ResultSet rs) throws SQLException {
 
         if (! rs.next()) {

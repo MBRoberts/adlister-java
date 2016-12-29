@@ -18,8 +18,8 @@
             <c:forEach var="ad" items="${ads}">
                 <div class="col-md-6">
                     <h2>${ad.title}</h2>
-                    <p>Posted ${ad.createdAt}</p>
-                    <p>Updated Last ${ad.updatedAt}</p>
+                    <p>Posted ${ad.timeCreatedAgo}</p>
+                    <p>Updated Last ${ad.timeUpdatedAgo}</p>
                     <p>Description: ${ad.description}</p>
                     <p>Categories:
                         <c:forEach var="category" items="${ad.categories}">
