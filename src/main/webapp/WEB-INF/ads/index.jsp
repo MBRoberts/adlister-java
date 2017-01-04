@@ -15,10 +15,16 @@
         <div class="container">
             <h1>Here Are all the ads!</h1>
 
+            <c:if test="${!sessionScope.message.equals(null)}">
+                <div class="form-group has-error">${sessionScope.message}</div>
+            </c:if>
+
             <c:forEach var="ad" items="${ads}">
                 <div class="col-md-6">
                     <h2>${ad.title}</h2>
+                    <img src="assets/img/${ad.photoFilePath}" height="300" width="300">
                     <p>Posted ${ad.timeCreatedAgo}</p>
+                    <p>Posted by: ${ad.userCreated}</p>
                     <p>Updated Last ${ad.timeUpdatedAgo}</p>
                     <p>Description: ${ad.description}</p>
                     <p>Categories:

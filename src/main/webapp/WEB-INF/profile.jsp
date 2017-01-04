@@ -14,9 +14,14 @@
             <h1>Welcome, ${sessionScope.user.username}!</h1>
         </div>
 
+        <c:if test="${!sessionScope.message.equals(null)}">
+            <div class="form-group has-error">${sessionScope.message}</div>
+        </c:if>
+
         <c:forEach var="ad" items="${ads}">
             <div class="col-md-6">
                 <h2>${ad.title}</h2>
+                <img src="assets/img/${ad.photoFilePath}" width="300" height="300">
                 <p>Posted ${ad.timeCreatedAgo}</p>
                 <p>Updated Last ${ad.timeUpdatedAgo}</p>
                 <p>Description: ${ad.description}</p>
@@ -27,6 +32,9 @@
 
                     </c:forEach>
                 </p>
+                <c:if test="${sessionScope.user.id.equals(ad.userId)}">
+                    <a href="/ads/edit?ad=${ad.id}">Edit Ad</a>
+                </c:if>
             </div>
         </c:forEach>
 

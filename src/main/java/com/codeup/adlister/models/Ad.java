@@ -1,7 +1,5 @@
 package com.codeup.adlister.models;
 
-import org.ocpsoft.prettytime.PrettyTime;
-
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -9,6 +7,7 @@ public class Ad {
 
     private long id;
     private long userId;
+    private String userCreated;
     private String title;
     private String description;
     private String timeCreatedAgo;
@@ -16,23 +15,26 @@ public class Ad {
     private Timestamp createdAt;
     private Timestamp updatedAt;
     private List<String> categories;
+    private String photoFilePath;
 
-    public Ad(long id, long userId, String title, String description, Timestamp createdAt, Timestamp updatedAt) {
+    public Ad(long id, long userId, String title, String description, String filePath, Timestamp createdAt, Timestamp updatedAt) {
 
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.description = description;
+        this.photoFilePath = filePath;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
 
     }
 
-    public Ad(long userId, String title, String description) {
+    public Ad(long userId, String title, String description, String filePath) {
 
         this.userId = userId;
         this.title = title;
         this.description = description;
+        this.photoFilePath = filePath;
 
     }
 
@@ -98,5 +100,21 @@ public class Ad {
 
     public void setTimeUpdatedAgo(String timeUpdatedAgo) {
         this.timeUpdatedAgo = timeUpdatedAgo;
+    }
+
+    public String getPhotoFilePath() {
+        return photoFilePath;
+    }
+
+    public void setPhotoFilePath(String photoFilePath) {
+        this.photoFilePath = photoFilePath;
+    }
+
+    public String getUserCreated() {
+        return userCreated;
+    }
+
+    public void setUserCreated(String userCreated) {
+        this.userCreated = userCreated;
     }
 }

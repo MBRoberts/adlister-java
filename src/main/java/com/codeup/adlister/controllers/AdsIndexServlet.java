@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+
+import com.codeup.adlister.models.User;
 import org.ocpsoft.prettytime.PrettyTime;
 
 @WebServlet(name = "controllers.AdsIndexServlet", urlPatterns = "/ads")
@@ -25,6 +27,9 @@ public class AdsIndexServlet extends HttpServlet {
             ad.setTimeUpdatedAgo(p.format(ad.getUpdatedAt()));
 
             List<String> categories = DaoFactory.getCategoryDao().getCategoriesForAds(ad.getId());
+
+            User user = DaoFactory.getUsersDao().findByUserId(ad.getUserId());
+            ad.setUserCreated(user.getUsername());
 
             ad.setCategories(categories);
 

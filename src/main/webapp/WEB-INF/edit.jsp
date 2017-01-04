@@ -13,6 +13,10 @@
 
         <h1>Please edit your information.</h1>
 
+        <c:if test="${!sessionScope.message.equals(null)}">
+            <div class="form-group has-error">${sessionScope.message}</div>
+        </c:if>
+
         <form action="/profile/edit" method="post">
 
             <div class="form-group">
